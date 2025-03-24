@@ -1,0 +1,8 @@
+# Ignorer tous les fichiers sans extension (exécutables compilés)
+/*
+
+# Ne pas ignorer les dossiers
+!*/
+
+# Ne pas ignorer les fichiers avec une extension
+!**/*.*

@@ -89,16 +89,33 @@ int d_type(va_list args)
 
 int i_type(va_list args)
 {
-	int i;
-	int unite = 0;
-	int dizaine = 0;
+	int n;
+	int i = 0;
+	int j = 0;
+	int count;
+	unsigned int posi_n;
+	char tab[10];
 
-	i = va_arg(args, int);
-	unite = ((i % 10) + '0');
-	dizaine = ((i / 10) + '0');
+	n = va_arg(args, int);
 
-	(write(1, &dizaine, 1));
-	(write(1, &unite, 1));
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		posi_n = -n;
+	}
 
-	return (i);
+	else
+		posi_n = n;
+
+	while (posi_n > 0)
+	{
+		tab[i] = ((posi_n % 10) + '0');
+		posi_n = posi_n / 10;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+		count = count + write(1, &tab[j], 1);
+
+	return (count);
 }

@@ -2,6 +2,12 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+/**
+ * _printf - function that produces output according to a format.
+ * @format: pointers to a string ex: "Character:[%c]\n"
+ * Return: count: number of char print by the function
+ */
+
 int _printf(const char *format, ...)
 {
 	int i;
@@ -11,7 +17,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	for(i = 0; format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{

@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			if (func)
 			{
 				count += func(args);
-				i++;
+				continue;
 			}
 
 			else
@@ -29,11 +29,14 @@ int _printf(const char *format, ...)
 				write(1, "%", 1);
 				write(1, &format[i], 1);
 				count += 2;
+				continue;
 			}
 
 		}
-			write(1, &format[i], 1);
-			count++;
+
+		write(1, &format[i], 1);
+		count++;
+
 	}
 
 	va_end(args);

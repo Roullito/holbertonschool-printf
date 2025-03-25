@@ -43,31 +43,48 @@ int p_type(va_list args)
 }
 
 /**
- * d_type - Handles the %d format specifier for numbers between 0 and 99
- * @args: list of variadic arguments (expects an int)
- * Return: The original integer (not the number of characters printed)
+ * d_type - Handles the %d format specifier
+ * @args: list of variadic arguments
+ * Return: The original integer
  */
 
 int d_type(va_list args)
 {
 	int d;
-	int unite = 0;
-	int dizaine = 0;
+	int i = 0;
+	int j = 0;
+	int count;
+	unsigned int posi_d;
+	char tab[10];
 
 	d = va_arg(args, int);
-	unite = ((d % 10) + '0');
-	dizaine = ((d / 10) + '0');
 
-	(write(1, &dizaine, 1));
-	(write(1, &unite, 1));
+	if (d < 0)
+	{
+		write(1, "-", 1);
+		posi_d = -d;
+	}
 
-	return (d);
+	else
+		posi_d = d;
+
+	while (posi_d > 0)
+	{
+		tab[i] = ((posi_d % 10) + '0');
+		posi_d = posi_d / 10;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+		count = count + write(1, &tab[j], 1);
+
+	return (count);
 }
 
 /**
- * i_type - Handles the %i format specifier for numbers between 0 and 99
- * @args: list of variadic arguments (expects an int)
- * Return: The original integer (not the number of characters printed)
+ * i_type - Handles the %i format specifier
+ * @args: list of variadic arguments
+ * Return: The original integer
  */
 
 int i_type(va_list args)

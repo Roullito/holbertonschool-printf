@@ -15,5 +15,9 @@ int (*get_func(char c))(va_list)
 		return (s_type);
 	if (c == '%')
 		return (p_type);
+	if (c == 'd')
+		return (d_type);
+	if (c == 'i')
+		return (i_type);
 	return (NULL);
 }

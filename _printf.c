@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 			if (func)
 			{
 				count += func(args);
+				i++;
 			}
 
 			else

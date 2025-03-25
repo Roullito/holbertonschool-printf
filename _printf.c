@@ -19,8 +19,14 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%' && format[i + 1])
+		if (format[i] == '%')
 		{
+			if (!format[i + 1])
+			{
+				va_end(args);
+				return (-1);
+			}
+
 			i++;
 			func = get_func(format[i]);
 
@@ -29,7 +35,6 @@ int _printf(const char *format, ...)
 				count += func(args);
 				continue;
 			}
-
 			else
 			{
 				write(1, "%", 1);
@@ -39,10 +44,8 @@ int _printf(const char *format, ...)
 			}
 
 		}
-
 		write(1, &format[i], 1);
 		count++;
-
 	}
 
 	va_end(args);

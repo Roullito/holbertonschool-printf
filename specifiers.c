@@ -53,20 +53,27 @@ int d_type(va_list args)
 	int d;
 	int i = 0;
 	int j = 0;
-	int count;
+	int count = 0;
 	unsigned int posi_d;
-	char tab[10];
+	char tab[12];
 
 	d = va_arg(args, int);
 
 	if (d < 0)
 	{
 		write(1, "-", 1);
+		count++;
 		posi_d = -d;
 	}
 
 	else
 		posi_d = d;
+
+	if (posi_d == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 
 	while (posi_d > 0)
 	{

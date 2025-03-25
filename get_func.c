@@ -18,6 +18,6 @@ int (*get_func(char c))(va_list)
 	if (c == 'd')
 		return (d_type);
 	if (c == 'i')
-		return (i_type);
+		return (d_type);
 	return (NULL);
 }

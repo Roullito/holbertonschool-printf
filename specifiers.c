@@ -28,7 +28,7 @@ int s_type(va_list args)
 
 	while (s[i] != '\0')
 	{
-		write(1, &s, 1);
+		write(1, &s[i], 1);
 		i++;
 	}
 

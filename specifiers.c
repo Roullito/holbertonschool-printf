@@ -26,8 +26,11 @@ int s_type(va_list args)
 	if (!s)
 		s = "(null)";
 
-	while (s[i])
-		write(1, &s[i++], 1);
+	while (s[i] != '\0')
+	{
+		write(1, &s, 1);
+		i++;
+	}
 
 	return (i);
 }

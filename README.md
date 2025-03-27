@@ -1,5 +1,7 @@
 markdown
-# C - printf
+# C - printf project
+
+<div align="center"><img src="https://github.com/ksyv/holbertonschool-web_front_end/blob/main/baniere_holberton.png"></div>
 
 ## 📌 Description
 
@@ -79,7 +81,7 @@ Below is the visual flow of how `_printf()` handles the format string and dispat
 
 > _Click on the image or open in draw.io for full resolution._
 
-![Flowchart](flowchart_printf.png)
+![Flowchart](flowchart_printf.drawio.png)
 
 ---
 
